@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KİKO Beauty | Güzelliğin Yeni Adresi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="intro-loader">
+        <h1 class="smoke-text">KİKO BEAUTY</h1>
+        <div class="loader-line"></div>
+    </div>
+
+    <input type="checkbox" id="cart-toggle" class="hidden-hack">
+    <div class="cart-sidebar">
+        <label for="cart-toggle" class="close-btn">✖ Kapat</label>
+        <h2>Sepetim</h2>
+        <p>Sepetiniz şu an boş.</p>
+        <button class="checkout-btn">Alışverişi Tamamla</button>
+    </div>
+
+    <div class="sparkle-bg"></div>
+
+    <header class="sticky-nav">
+        <div class="logo">KİKO</div>
+        
+        <nav class="main-menu">
+            <ul>
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li class="dropdown">
+                    <a href="#shop">Alışveriş ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><label for="cat-makyaj">Makyaj</label></li>
+                        <li><label for="cat-cilt">Cilt Bakımı</label></li>
+                        <li><label for="cat-parfum">Parfüm</label></li>
+                        <li><label for="cat-sac">Saç Bakımı</label></li>
+                        <li><label for="cat-aksesuar">Aksesuar</label></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+        </nav>
+
+        <div class="right-menu">
+            <a href="#contact" class="uye-ol-btn">Üye Ol</a>
+            <label for="cart-toggle" class="sepet-btn">Sepetim</label>
+        </div>
+    </header>
+
+    <section id="home" class="parallax-section">
+        <div class="css-slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            
+            <div class="slides">
+                <div class="slide bg-1">
+                    <div class="slide-content">
+                        <h2>Yeni Koleksiyonu Keşfet</h2>
+                        <p>Işıltılı ve doğal bir görünüm için...</p>
+                    </div>
+                </div>
+                <div class="slide bg-2">
+                    <div class="slide-content">
+                        <h2>Cildinize İyi Bakın</h2>
+                        <p>En yenilikçi cilt bakım ürünleri KİKO'da.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-nav">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="shop-section">
+        <h2 class="section-title">Ürünlerimiz</h2>
+        
+        <input type="radio" name="category" id="cat-makyaj" checked class="hidden-hack">
+        <input type="radio" name="category" id="cat-cilt" class="hidden-hack">
+        <input type="radio" name="category" id="cat-parfum" class="hidden-hack">
+        <input type="radio" name="category" id="cat-sac" class="hidden-hack">
+        <input type="radio" name="category" id="cat-aksesuar" class="hidden-hack">
+
+        <div class="category-buttons">
+            <label for="cat-makyaj">Makyaj</label>
+            <label for="cat-cilt">Cilt Bakımı</label>
+            <label for="cat-parfum">Parfüm</label>
+            <label for="cat-sac">Saç Bakımı</label>
+            <label for="cat-aksesuar">Aksesuar</label>
+        </div>
+
+        <div class="product-container">
+            <div class="product-grid makyaj-grid">
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="ruj.jpg" alt="Ruj" class="image-hover"><h3>KİKO Ruj</h3><p>350 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Uzun süre kalıcı, yoğun pigmentli mat ruj.</p><a href="#popup1" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="fondöten.jpg" alt="Fondöten" class="image-hover"><h3>Likit Fondöten</h3><p>550 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Yüksek kapatıcılık, doğal bitiş.</p><a href="#popup2" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="maskara.jpg" alt="Maskara" class="image-hover"><h3>Hacim Maskara</h3><p>280 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Ekstra dolgun kirpikler için siyah maskara.</p><a href="#popup3" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="FarPaleti.jpg" alt="Göz Farı" class="image-hover"><h3>Göz Farı Paleti</h3><p>420 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>12 farklı sıcak ton içeren far paleti.</p><a href="#popup4" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="allık.jpg" alt="Allık" class="image-hover"><h3> Allık</h3><p>310 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Canlı ve taze bir görünüm veren allık.</p><a href="#popup5" class="btn">İncele</a></div>
+                </div></div>
+            </div>
+
+            <div class="product-grid cilt-grid">
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="cVitaminiSerum.jpg" alt="Serum" class="image-hover"><h3>C Vitamini Serumu</h3><p>450 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Aydınlık ve canlı bir cilt için.</p><a href="#popup6" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="nemlendirici.jpg" alt="Krem" class="image-hover"><h3>Nemlendirici Krem</h3><p>380 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>24 saat etkili yoğun nemlendirici.</p><a href="#popup7" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="gözAltıKremi.jpg" alt="Göz Kremi" class="image-hover"><h3>Göz Altı Kremi</h3><p>400 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Torbalanma ve morluk karşıtı bakım.</p><a href="#popup8" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="temizlemeJeli.jpg" alt="Temizleme Jeli" class="image-hover"><h3>Temizleme Jeli</h3><p>220 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Gözenekleri arındıran yüz yıkama jeli.</p><a href="#popup9" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="tonik1.jpg" alt="Tonik" class="image-hover"><h3>Arındırıcı Tonik</h3><p>200 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Cilt dengesini sağlayan ferahlatıcı tonik.</p><a href="#popup10" class="btn">İncele</a></div>
+                </div></div>
+            </div>
+
+            <div class="product-grid parfum-grid">
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="flora.jpg" alt="Floral" class="image-hover"><h3>Floral EDP</h3><p>1200 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Kalıcı çiçeksi notalar.</p><a href="#popup11" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="woody.jpg" alt="Odunsu" class="image-hover"><h3>Woody EDT</h3><p>1100 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Gizemli ve odunsu esanslar.</p><a href="#popup12" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="meyveli.jpg" alt="Body Mist" class="image-hover"><h3>Meyveli Sprey</h3><p>350 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Gün boyu taze hissettiren meyveli sprey.</p><a href="#popup13" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="night.jpg" alt="Gece" class="image-hover"><h3>Night Glam EDP</h3><p>1350 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Özel davetler için yoğun gece parfümü.</p><a href="#popup14" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="fresh.jpg" alt="Kolonya" class="image-hover"><h3>Fresh Kolonya</h3><p>150 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Limon ve yeşil çay özlü ferahlık.</p><a href="#popup15" class="btn">İncele</a></div>
+                </div></div>
+            </div>
+
+            <div class="product-grid sac-grid">
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="şampuan.jpg" alt="Şampuan" class="image-hover"><h3>Besleyici Şampuan</h3><p>250 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Kırık uçları onarır ve yapılandırır.</p><a href="#popup16" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="saçNemlendiriciKremi.jpg" alt="Saç Kremi" class="image-hover"><h3>Nemlendirici Krem</h3><p>260 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Yumuşak ve taranması kolay saçlar.</p><a href="#popup17" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="saçMaskesi.jpg" alt="Maske" class="image-hover"><h3>Onarıcı Saç Maskesi</h3><p>320 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Haftalık yoğun bakım maskesi.</p><a href="#popup18" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="saçSerumu.jpg" alt="Serum" class="image-hover"><h3>Parlaklık Serumu</h3><p>380 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Elektriklenmeyi önleyen argan yağlı serum.</p><a href="#popup19" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="kuruŞampuan.jpg" alt="Kuru Şampuan" class="image-hover"><h3>Kuru Şampuan</h3><p>290 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Anında hacim ve temizlik hissi.</p><a href="#popup20" class="btn">İncele</a></div>
+                </div></div>
+            </div>
+
+            <div class="product-grid aksesuar-grid">
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="fırça.jpg" alt="Fırça Seti" class="image-hover"><h3>Profesyonel Fırça</h3><p>650 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>10 parçalı yüz ve göz fırça seti.</p><a href="#popup21" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="sünger.jpg" alt="Sünger" class="image-hover"><h3>Makyaj Süngeri</h3><p>120 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Kusursuz fondöten uygulaması için.</p><a href="#popup22" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="kirpikKıvırıcısı.jpg" alt="Kirpik Kıvırıcı" class="image-hover"><h3>Kirpik Kıvırıcı</h3><p>150 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Daha kalkık ve kıvrık kirpikler.</p><a href="#popup23" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="makyajÇantası.jpeg" alt="Çanta" class="image-hover"><h3>Makyaj Çantası</h3><p>300 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>Geniş hacimli şık seyahat çantası.</p><a href="#popup24" class="btn">İncele</a></div>
+                </div></div>
+                <div class="product-card 3d-flip"><div class="flip-inner">
+                    <div class="flip-front"><img src="cepAynası.jpg" alt="Ayna" class="image-hover"><h3>Işıklı Cep Aynası</h3><p>250 TL</p></div>
+                    <div class="flip-back"><h3>Detaylar</h3><p>LED aydınlatmalı taşınabilir ayna.</p><a href="#popup25" class="btn">İncele</a></div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup1" class="popup">
+		<div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>KİKO Mat Ruj</h2><p>Uzun süre kalıcı, yoğun pigmentli mat ruj.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup2" class="popup">
+		<div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Likit Fondöten</h2><p>Yüksek kapatıcılık, doğal bitiş.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup3" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Hacim Maskara</h2><p>Ekstra dolgun kirpikler için siyah maskara.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup4" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Göz Farı Paleti</h2><p>12 farklı sıcak ton içeren far paleti.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup5" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Şeftali Allık</h2><p>Canlı ve taze bir görünüm veren allık.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    
+    <div id="popup6" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>C Vitamini Serumu</h2><p>Aydınlık ve canlı bir cilt için.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup7" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Nemlendirici Krem</h2><p>24 saat etkili yoğun nemlendirici.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup8" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Göz Altı Kremi</h2><p>Torbalanma ve morluk karşıtı bakım.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup9" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Temizleme Jeli</h2><p>Gözenekleri arındıran yüz yıkama jeli.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup10" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Arındırıcı Tonik</h2><p>Cilt dengesini sağlayan ferahlatıcı tonik.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    
+    <div id="popup11" class="popup">
+		<div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Floral EDP</h2><p>Kalıcı çiçeksi notalar.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup12" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Woody EDT</h2><p>Gizemli ve odunsu esanslar.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup13" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Meyveli Vücut Spreyi</h2><p>Gün boyu taze hissettiren meyveli sprey.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup14" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Night Glam EDP</h2><p>Özel davetler için yoğun gece parfümü.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup15" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Fresh Kolonya</h2><p>Limon ve yeşil çay özlü ferahlık.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+
+    <div id="popup16" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Besleyici Şampuan</h2><p>Kırık uçları onarır.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup17" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Nemlendirici Saç Kremi</h2><p>Yumuşak ve taranması kolay saçlar.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup18" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Onarıcı Saç Maskesi</h2><p>Haftalık yoğun bakım maskesi.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup19" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Parlaklık Serumu</h2><p>Elektriklenmeyi önleyen argan yağlı serum.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup20" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Kuru Şampuan</h2><p>Anında hacim ve temizlik hissi.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+
+    <div id="popup21" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Profesyonel Fırça Seti</h2><p>10 parçalı yüz ve göz fırça seti.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup22" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Makyaj Süngeri</h2><p>Kusursuz fondöten uygulaması için.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup23" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Kirpik Kıvırıcı</h2><p>Daha kalkık ve kıvrık kirpikler.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup24" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Makyaj Çantası</h2><p>Geniş hacimli şık seyahat çantası.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div>
+	</div>
+    <div id="popup25" class="popup"><div class="popup-content"><a href="#shop" class="close-popup">✖</a><h2>Işıklı Cep Aynası</h2><p>LED aydınlatmalı taşınabilir ayna.</p>
+		<label for="cart-toggle" class="add-to-cart-btn">Sepete Ekle</label></div></div>
+
+    <section id="contact" class="form-section">
+        <div class="forms-container">
+            <div class="transparent-form" id="signup-form">
+                <h2>Üye Ol</h2>
+                <form action="#">
+                    <input type="text" placeholder="Adınız Soyadınız" required>
+                    <input type="email" placeholder="E-Posta Adresiniz" required>
+                    <input type="password" placeholder="Şifreniz" required>
+                    <input type="password" placeholder="Şifre Tekrar" required>
+                    <button type="submit">Kayıt Ol</button>
+                </form>
+            </div>
+            <div class="transparent-form" id="contact-form">
+                <h2>İletişim</h2>
+                <form action="#">
+                    <input type="text" placeholder="İsim Soyisim" required>
+                    <input type="email" placeholder="E-Posta Adresi" required>
+                    <input type="tel" placeholder="Telefon Numarası">
+                    <textarea placeholder="Mesajınız..." rows="4" required></textarea>
+                    <button type="submit">Mesaj Gönder</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-mock">
+            <div class="map-pin">📍</div>
+            <p>KİKO Beauty Merkez Ofis<br>İstanbul, Türkiye</p>
+        </div>
+    </section>
+
+    <a href="https://wa.me/" class="whatsapp-btn">💬</a>
+
+    <footer>
+        <p>&copy; 2026 KİKO Beauty. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>

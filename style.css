@@ -1,0 +1,767 @@
+@charset "utf-8";
+/* CSS Document */
+:root {
+    --toz-pembe: #ffc2d1;
+    --acik-pembe: #ffe5ec;
+    --koyu-pembe: #fb6f92;
+    --beyaz: #ffffff;
+    --siyah: #333333;
+}
+
+body {
+	 margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--beyaz);
+    color: var(--siyah);
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hidden-hack {
+    display: none;
+}
+
+/* =========================================
+   2. ANİMASYONLU AÇILIŞ (INTRO EKRANI)
+========================================= */
+.intro-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--beyaz);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1s ease-in-out 3s forwards;
+}
+
+.smoke-text {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: transparent;
+    background: linear-gradient(90deg, var(--koyu-pembe), var(--toz-pembe), var(--koyu-pembe));
+    background-size: 200%;
+    -webkit-background-clip: text;
+    animation: smokeEffect 2s linear infinite;
+}
+
+.loader-line {
+    width: 0;
+    height: 3px;
+    background: var(--koyu-pembe);
+    margin-top: 20px;
+    animation: loadLine 2.5s ease-in-out forwards;
+}
+
+@keyframes smokeEffect {
+    0% {
+        background-position: 0% 50%;
+        filter: blur(0px);
+    }
+    50% {
+        filter: blur(1px);
+    }
+    100% {
+        background-position: 100% 50%;
+        filter: blur(0px);
+    }
+}
+
+@keyframes loadLine {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 200px;
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* =========================================
+   3. ARKA PLAN EFEKTİ (KAR/IŞILTI)
+========================================= */
+.sparkle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-image: radial-gradient(var(--toz-pembe) 1px, transparent 1px), 
+                      radial-gradient(var(--koyu-pembe) 1px, transparent 1px);
+    background-size: 50px 50px, 100px 100px;
+    animation: snowFall 15s linear infinite;
+}
+
+@keyframes snowFall {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 500px 1000px, 400px 400px;
+    }
+}
+
+/* =========================================
+   4. YUKARIDA SABİT KALAN MENÜ (NAVBAR)
+========================================= */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--acik-pembe);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--koyu-pembe);
+    letter-spacing: 2px;
+}
+
+.main-menu {
+    background-color: var(--toz-pembe);
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-menu a, 
+.main-menu label {
+    text-decoration: none;
+    color: var(--siyah);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.main-menu a:hover, 
+.main-menu label:hover {
+    color: var(--koyu-pembe);
+}
+
+/* Açılır Menü (Dropdown) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background-color: var(--beyaz);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu li {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--acik-pembe);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+/* Sağ Menü Butonları */
+.right-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.uye-ol-btn, 
+.sepet-btn {
+    background-color: var(--koyu-pembe);
+    color: var(--beyaz);
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.uye-ol-btn:hover, 
+.sepet-btn:hover {
+    background-color: #e05c7e;
+}
+
+/* =========================================
+   5. YANDAN AÇILAN SEPET SİSTEMİ
+========================================= */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--beyaz);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    transition: right 0.4s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-toggle:checked ~ .cart-sidebar {
+    right: 0;
+}
+
+.close-btn {
+    cursor: pointer;
+    color: var(--koyu-pembe);
+    align-self: flex-end;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.cart-sidebar h2 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--toz-pembe);
+    padding-bottom: 10px;
+}
+
+.checkout-btn {
+    margin-top: auto;
+    background-color: var(--toz-pembe);
+    color: var(--siyah);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: var(--koyu-pembe);
+    color: var(--beyaz);
+}
+
+/* =========================================
+   6. PARALLAX ARKA PLAN VE SLIDER
+========================================= */
+.parallax-section {
+    background-image: url('assets/parallax-bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.css-slider {
+    width: 80%;
+    height: 70%;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    color: var(--koyu-pembe);
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    color: var(--siyah);
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-50%);
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.slider-nav label {
+    width: 15px;
+    height: 15px;
+    background: var(--toz-pembe);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#slide1:checked ~ .slider-nav label[for="slide1"], 
+#slide2:checked ~ .slider-nav label[for="slide2"] {
+    background: var(--koyu-pembe);
+}
+
+/* =========================================
+   7. KATEGORİ FİLTRELEME VE MAĞAZA ALANI
+========================================= */
+.shop-section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--siyah);
+    margin-bottom: 30px;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.category-buttons label {
+    padding: 10px 25px;
+    background-color: var(--acik-pembe);
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.category-buttons label:hover {
+    background-color: var(--toz-pembe);
+    transform: translateY(-3px);
+}
+
+/* Seçili Kategori Efekti */
+#cat-makyaj:checked ~ .category-buttons label[for="cat-makyaj"],
+#cat-cilt:checked ~ .category-buttons label[for="cat-cilt"],
+#cat-parfum:checked ~ .category-buttons label[for="cat-parfum"],
+#cat-sac:checked ~ .category-buttons label[for="cat-sac"],
+#cat-aksesuar:checked ~ .category-buttons label[for="cat-aksesuar"] {
+    background-color: var(--koyu-pembe);
+    color: var(--beyaz);
+}
+
+/* Kategori Gridlerinin Gösterilip Gizlenmesi */
+.product-grid {
+    display: none;
+}
+
+#cat-makyaj:checked ~ .product-container .makyaj-grid,
+#cat-cilt:checked ~ .product-container .cilt-grid,
+#cat-parfum:checked ~ .product-container .parfum-grid,
+#cat-sac:checked ~ .product-container .sac-grid,
+#cat-aksesuar:checked ~ .product-container .aksesuar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* =========================================
+   8. 3D ÜRÜN KARTLARI (FLIP EFEKTİ)
+========================================= */
+.product-card {
+    width: 240px;
+    height: 340px;
+    perspective: 1000px;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.product-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, 
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: var(--beyaz);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.flip-front img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.flip-front:hover img {
+    transform: scale(1.05);
+}
+
+.flip-front h3 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    color: var(--siyah);
+}
+
+.flip-front p {
+    color: var(--koyu-pembe);
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+.flip-back {
+    background: var(--acik-pembe);
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.flip-back h3 {
+    margin-bottom: 10px;
+    color: var(--siyah);
+}
+
+.flip-back p {
+    font-size: 0.95rem;
+    color: var(--siyah);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: var(--koyu-pembe);
+    color: var(--beyaz);
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #e05c7e;
+}
+
+/* =========================================
+   9. POPUP PENCERELERİ (CSS TARGET HACK)
+========================================= */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.popup:target {
+    display: flex;
+}
+
+.popup-content {
+    background: var(--beyaz);
+    padding: 40px;
+    border-radius: 15px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h2 {
+    color: var(--koyu-pembe);
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    text-decoration: none;
+    color: var(--siyah);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.close-popup:hover {
+    color: var(--koyu-pembe);
+}
+
+.add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--toz-pembe);
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--koyu-pembe);
+    color: var(--beyaz);
+}
+
+/* =========================================
+   10. İLETİŞİM VE KAYIT FORMLARI
+========================================= */
+.form-section {
+    background-image: url('assets/contact-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.forms-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.transparent-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.transparent-form h2 {
+    color: var(--siyah);
+    margin-bottom: 10px;
+}
+
+.transparent-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.transparent-form input, 
+.transparent-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    outline: none;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
+
+.transparent-form input:focus, 
+.transparent-form textarea:focus {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.transparent-form button {
+    background: var(--koyu-pembe);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.transparent-form button:hover {
+    background: #e05c7e;
+}
+
+/* =========================================
+   11. HARİTA (MOCKUP) VE BUTONLAR
+========================================= */
+.map-mock {
+    width: 100%;
+    max-width: 1100px;
+    height: 180px;
+    background: #e5e3df;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    color: #666;
+    text-align: center;
+}
+
+.map-pin {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   12. ALT BİLGİ (FOOTER)
+========================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--acik-pembe);
+    color: var(--siyah);
+    width: 100%;
+    font-weight: 500;
+}
+
+/* =========================================
+   13. MOBİL UYUM (RESPONSIVE TASARIM)
+========================================= */
+@media screen and (max-width: 768px) {
+    .sticky-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .right-menu {
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .main-menu ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .forms-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .css-slider {
+        width: 95%;
+        height: 60%;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .category-buttons label {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
